@@ -1,11 +1,21 @@
 import { useState } from 'react';
 import styles from './App.module.css';
 import poweredImage from './assets/powered.png';
-
+import { levels, calculateImc } from './helpers/imc';
+ 
 const App = () => {
 
 	const [heightField, setHeightField] = useState<number>(0);
 	const [weightField, setWeightField] = useState<number>(0);
+	
+	const handleCalculateButton = () => {
+		if (heightField && weightField) {
+
+		} else {
+
+			alert('Digite todos os campos');
+		}
+	}
 
 	return (
 		<div className={styles.main}>
@@ -34,6 +44,7 @@ const App = () => {
 						value={weightField > 0 ? weightField : ''} 
 						onChange={e => setWeightField(parseFloat(e.target.value))}
 					/>
+					<button onClick={handleCalculateButton}>Calcular</button>
 				</div>
 				<div className={styles.rightSide}>
 					...
